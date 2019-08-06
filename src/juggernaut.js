@@ -17,74 +17,79 @@
 // }
 
 const CONSTANTS = {
-  GRAVITY: 0.4,
-  FLAP_SPEED: 8,
-  TERMINAL_VEL: 12,
   JUGGERNAUT_WIDTH: 530,
-  JUGGERNAUT_HEIGHT: 430
+  JUGGERNAUT_HEIGHT: 430,
+  FRAME_Y: 0,
+  CANVAS_X: 150,
+  CANVAS_Y: 150
 };
 
-export default class Bird {
+export default class Juggernaut {
 
-  constructor(dimensions) {
-    this.dimensions = dimensions;
-    this.x = this.dimensions.width / 3;
-    this.y = this.dimensions.height / 2;
-    this.vel = 0;
-  }
-
-  flap() {
-    //if this were a more realistic bird simulation, we would be adding to the velocity
-    //instead of just assigning it outright
-    //to make the experience more fun and 'bouncy' we just set it directly
-    this.vel = -1 * CONSTANTS.FLAP_SPEED;
-  }
-
-  moveBird() {
-    //for each frame, the bird should move by it's current velocity
-    //velocity is 'pixels per frame', so each frame it should update position by vel
-    this.y += this.vel;
-    //the acceleration of gravity is in pixels per second per second
-    //so each second, it changes the velocity by whatever the gravity constant is
-    this.vel += CONSTANTS.GRAVITY;
-    //we set a 'terminal velocity', a maximum speed the bird can travel
-    //this keeps the game from becoming too wild because the bird is moving too fast to control
-    if (Math.abs(this.vel) > CONSTANTS.TERMINAL_VEL) {
-      //if the terminal velocity is exceeded, we set it to the terminal velicty
-      if (this.vel > 0) {
-        this.vel = CONSTANTS.TERMINAL_VEL;
-      } else {
-        this.vel = CONSTANTS.TERMINAL_VEL * -1;
-      }
-    }
-  }
-
-  animate(ctx) {
-    this.moveBird();
-    this.drawBird(ctx);
-  }
-
-  drawBird(ctx) {
-    // ctx.fillStyle = "yellow";
-    // ctx.fillRect(this.x, this.y, CONSTANTS.BIRD_WIDTH, CONSTANTS.BIRD_HEIGHT);
-
-
-    // ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // drawFrame(0, 0, 0, 0);
-  }
-
-  bounds() {
-    return {
-      left: this.x,
-      right: this.x + CONSTANTS.JUGGERNAUT_WIDTH,
-      top: this.y,
-      bottom: this.y + CONSTANTS.JUGGERNAUT_HEIGHT
+  constructor(ctx, dimensions) {
+    // this.x = this.dimensions.width / 3;
+    // this.y = this.dimensions.height / 2;
+    this.ctx = ctx; 
+    // this.imgBackground = new Image();
+    // this.imgBackground.src = "../assets/images/X-Men_background_image.png";
+    // this.imgBackground.id = "imgBackground";
+    this.canvasDimensions = dimensions;
+    this.img = new Image();
+    this.img.src = "../assets/spritesheets/Juggernaut_Spritesheet_Simplified.png";
+    this.img.onload = () => {
+      this.init();
     };
+
+    // this.cycleLoop = [0, 1, 0, 2];
+    this.cycleLoop = [0, 1];
+
+    this.currentLoopIndex = 0;
+    this.frameCount = 0;
+    this.step = this.step.bind(this);
+    this.drawJuggernaut = this.drawJuggernaut.bind(this);
   }
 
-  outOfBounds() {
-    const aboveTheTop = this.y < 0;
-    const belowTheBottom = this.y + CONSTANTS.JUGGERNAUT_HEIGHT > this.dimensions.height;
-    return aboveTheTop || belowTheBottom;
+  drawJuggernaut(frameX) {
+    // this.ctx.drawImage(this.imgBackground, 0, 0);
+    this.ctx.drawImage(this.img,
+      frameX * 500, CONSTANTS.FRAME_Y * 410, 500, 410,
+      CONSTANTS.CANVAS_X, CONSTANTS.CANVAS_Y, 100, 82);
   }
+
+  step() {
+    // debugger; 
+    this.frameCount++;
+    if (this.frameCount < 10) {
+      window.requestAnimationFrame(this.step);
+      return;
+    }
+    this.frameCount = 0;
+    this.ctx.clearRect(0, 0, this.canvasDimensions.width, this.canvasDimensions.height);
+    // this.ctx.drawImage(this.img, 0, 430, 500, 395, 0, 0, 500 * 0.2, 410 * 0.2);
+    this.drawJuggernaut(this.cycleLoop[this.currentLoopIndex]);
+    this.currentLoopIndex++;
+    if (this.currentLoopIndex >= this.cycleLoop.length) {
+      this.currentLoopIndex = 0;
+    }
+    window.requestAnimationFrame(this.step);
+  }
+
+  init() {
+    window.requestAnimationFrame(this.step);
+  }
+
+  // bounds() {
+  //   return {
+  //     left: this.x,
+  //     right: this.x + CONSTANTS.JUGGERNAUT_WIDTH,
+  //     top: this.y,
+  //     bottom: this.y + CONSTANTS.JUGGERNAUT_HEIGHT
+  //   };
+  // }
+
+  // outOfBounds() {
+  //   const aboveTheTop = this.y < 0;
+  //   const belowTheBottom = this.y + CONSTANTS.JUGGERNAUT_HEIGHT > this.dimensions.height;
+  //   return aboveTheTop || belowTheBottom;
+  // }
 }
