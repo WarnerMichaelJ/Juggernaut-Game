@@ -12,7 +12,7 @@ export default class JuggernautGame {
     this.ctx = canvas.getContext("2d");
     this.dimensions = { width: canvas.width, height: canvas.height };
 
-    this.background = new Background(movingBackground, this.dimensions);
+    this.background = new Background(movingBackground);
     // this.background = new Background(this.ctx);
     this.juggernaut = new Juggernaut(this.ctx, this.dimensions);
     // this.background.render();
@@ -25,14 +25,6 @@ export default class JuggernautGame {
     requestAnimationFrame(this.render);
     this.background.render();
   }
-
-
-
-
-
-
-
-
 
 
 
