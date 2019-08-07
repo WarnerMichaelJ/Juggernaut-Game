@@ -15,7 +15,7 @@ export default class Background {
   }
 
   drawBackground() {
-    debugger;
+    // debugger;
     this.ctx.drawImage(this.imgBackground, 0, 0);
   }
 

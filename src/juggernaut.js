@@ -1,3 +1,5 @@
+import Background from "./background";
+
 // const CONSTANTS = {
 //   RUNNING_SPEED: 8,
 //   JUGGERNAUT_WIDTH: 40,
@@ -33,6 +35,8 @@ export default class Juggernaut {
     // this.imgBackground = new Image();
     // this.imgBackground.src = "../assets/images/X-Men_background_image.png";
     // this.imgBackground.id = "imgBackground";
+    this.imgBackground = new Image();
+    this.imgBackground.src = "../assets/images/X-Men_background_image.png";
     this.canvasDimensions = dimensions;
     this.img = new Image();
     this.img.src = "../assets/spritesheets/Juggernaut_Spritesheet_Simplified.png";
@@ -56,6 +60,10 @@ export default class Juggernaut {
       CONSTANTS.CANVAS_X, CONSTANTS.CANVAS_Y, 100, 82);
   }
 
+  drawGameState() {
+
+  }
+
   step() {
     // debugger; 
     this.frameCount++;
@@ -65,7 +73,7 @@ export default class Juggernaut {
     }
     this.frameCount = 0;
     this.ctx.clearRect(0, 0, this.canvasDimensions.width, this.canvasDimensions.height);
-    // this.ctx.drawImage(this.img, 0, 430, 500, 395, 0, 0, 500 * 0.2, 410 * 0.2);
+    this.ctx.drawImage(this.imgBackground, 0, 0);
     this.drawJuggernaut(this.cycleLoop[this.currentLoopIndex]);
     this.currentLoopIndex++;
     if (this.currentLoopIndex >= this.cycleLoop.length) {

@@ -13,12 +13,16 @@ export default class JuggernautGame {
     this.dimensions = { width: canvas.width, height: canvas.height };
 
     this.background = new Background(this.ctx, this.dimensions);
+    // this.background = new Background(this.ctx);
     this.juggernaut = new Juggernaut(this.ctx, this.dimensions);
     // this.registerEvents();
     // this.restart();
   }
 
-
+  render() {
+    requestAnimationFrame(this.render);
+    this.background.render();
+  }
 
 
   // init() {
@@ -71,10 +75,10 @@ export default class JuggernautGame {
   //   );
   // }
 
-  //this is the key method of gaming action
-  //animate tells the game to advance one bit
-  //the bird moves, the level moves
-  //everything is redrawn to the screen
+  // this is the key method of gaming action
+  // animate tells the game to advance one bit
+  // the bird moves, the level moves
+  // everything is redrawn to the screen
   // animate() {
   //   //first we move and draw the level
   //   this.level.animate(this.ctx);
