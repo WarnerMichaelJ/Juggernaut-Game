@@ -28,8 +28,8 @@ export default class Wall {
     if (this.x <= -150) this.x = 500;
     console.log(this.x);
     this.ctx.drawImage(this.img,
-      500, 500, 500, 500,
-      this.x, 150, 100, 100);
+      0, 0, 1200, 1200,
+      this.x, 110, 150, 150);
   }
 
   render() {
