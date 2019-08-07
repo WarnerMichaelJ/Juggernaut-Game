@@ -42,13 +42,14 @@ export default class JuggernautGame {
     // debugger;
     this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
 
+    this.wall.render();
     this.juggernaut.drawJuggernaut(this.cycleLoop[this.currentLoopIndex]);
     // this.currentLoopIndex++;
     if (this.currentLoopIndex >= this.cycleLoop.length) {
       this.currentLoopIndex = 0;
     }
     this.background.render();
-    this.wall.drawWall();
+    
     window.requestAnimationFrame(this.render);
     // this.juggernaut.step();
 

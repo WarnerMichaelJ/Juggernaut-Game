@@ -5,9 +5,9 @@ const WALL_SPRITESHEET_COORDINATE = {
 
 export default class Wall {
   constructor(ctx, props) {
-    // this.x = props.x; 
+    this.x = 500; 
     // this.y = props.y;
-    this.speed = 0.5;
+    this.speed = 1.0;
     this.ctx = ctx; 
 
 
@@ -24,13 +24,17 @@ export default class Wall {
 
   drawWall() {
     // drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+  
+    if (this.x <= -150) this.x = 500;
+    console.log(this.x);
     this.ctx.drawImage(this.img,
       500, 500, 500, 500,
-      400, 150, 100, 100);
+      this.x, 150, 100, 100);
   }
 
   render() {
-
+    this.moveWall();
+    this.drawWall();
   }
 
   
