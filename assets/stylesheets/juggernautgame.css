@@ -1,0 +1,27 @@
+canvas {
+  border: 1px solid black;
+}
+
+
+#juggernaut-header-title {
+  text-align: center;
+}
+
+
+#canvas-div {
+  margin: 0 auto;
+  margin-top: 5%;
+  /* background: url("../images/Urban_Decay_Arcade_Background.jpg"); */
+  margin-left: 10%;
+}
+
+#juggernaut-game, #moving-background {
+  display: block;
+  position:absolute;
+  margin:auto;
+  border: 1px solid #000;
+}
+
+#moving-background {
+  z-index: -1;
+}

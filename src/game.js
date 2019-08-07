@@ -6,23 +6,34 @@ import Background from "./background";
 // import yada from "../assets/images/X-Men_background_image.png";
 
 export default class JuggernautGame {
-  constructor(canvas) {
+  constructor(canvas, movingBackground) {
     
 
     this.ctx = canvas.getContext("2d");
     this.dimensions = { width: canvas.width, height: canvas.height };
 
-    this.background = new Background(this.ctx, this.dimensions);
+    this.background = new Background(movingBackground, this.dimensions);
     // this.background = new Background(this.ctx);
     this.juggernaut = new Juggernaut(this.ctx, this.dimensions);
+    // this.background.render();
     // this.registerEvents();
     // this.restart();
+    this.render = this.render.bind(this);
   }
 
   render() {
     requestAnimationFrame(this.render);
     this.background.render();
   }
+
+
+
+
+
+
+
+
+
 
 
   // init() {

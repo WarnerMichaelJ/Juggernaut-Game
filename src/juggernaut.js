@@ -1,4 +1,4 @@
-import Background from "./background";
+
 
 // const CONSTANTS = {
 //   RUNNING_SPEED: 8,
@@ -32,20 +32,21 @@ export default class Juggernaut {
     // this.x = this.dimensions.width / 3;
     // this.y = this.dimensions.height / 2;
     this.ctx = ctx; 
+
+
     // this.imgBackground = new Image();
     // this.imgBackground.src = "../assets/images/X-Men_background_image.png";
     // this.imgBackground.id = "imgBackground";
-    this.imgBackground = new Image();
-    this.imgBackground.src = "../assets/images/X-Men_background_image.png";
+    
     this.canvasDimensions = dimensions;
     this.img = new Image();
     this.img.src = "../assets/spritesheets/Juggernaut_Spritesheet_Simplified.png";
     this.img.onload = () => {
-      this.init();
+      window.requestAnimationFrame(this.step);
     };
 
-    // this.cycleLoop = [0, 1, 0, 2];
-    this.cycleLoop = [0, 1];
+    this.cycleLoop = [0, 1, 0, 2];
+    // this.cycleLoop = [0, 1];
 
     this.currentLoopIndex = 0;
     this.frameCount = 0;
@@ -54,7 +55,7 @@ export default class Juggernaut {
   }
 
   drawJuggernaut(frameX) {
-    // this.ctx.drawImage(this.imgBackground, 0, 0);
+
     this.ctx.drawImage(this.img,
       frameX * 500, CONSTANTS.FRAME_Y * 410, 500, 410,
       CONSTANTS.CANVAS_X, CONSTANTS.CANVAS_Y, 100, 82);
@@ -73,7 +74,7 @@ export default class Juggernaut {
     }
     this.frameCount = 0;
     this.ctx.clearRect(0, 0, this.canvasDimensions.width, this.canvasDimensions.height);
-    this.ctx.drawImage(this.imgBackground, 0, 0);
+
     this.drawJuggernaut(this.cycleLoop[this.currentLoopIndex]);
     this.currentLoopIndex++;
     if (this.currentLoopIndex >= this.cycleLoop.length) {
@@ -82,9 +83,9 @@ export default class Juggernaut {
     window.requestAnimationFrame(this.step);
   }
 
-  init() {
-    window.requestAnimationFrame(this.step);
-  }
+  // init() {
+  //   window.requestAnimationFrame(this.step);
+  // }
 
   // bounds() {
   //   return {
