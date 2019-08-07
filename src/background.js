@@ -54,8 +54,7 @@ class MovingBackground {
     if (this.xCurrent <= -CANVAS_WIDTH) this.xCurrent = 0;
     this.xCurrent -= this.speed;
     // debugger;
-    // console.log(CANVAS_WIDTH);
-    console.log(this.xCurrent);
+    // console.log(this.xCurrent);
   }
 }
 

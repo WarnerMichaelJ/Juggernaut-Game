@@ -18,14 +18,36 @@ export default class JuggernautGame {
     // this.background.render();
     // this.registerEvents();
     // this.restart();
+
+    this.cycleLoop = [0, 1, 0, 2];
+    this.currentLoopIndex = 0;
+    this.frameCount = 0;
+
+    // this.step = this.step.bind(this);
     this.render = this.render.bind(this);
+
   }
 
   render() {
-    requestAnimationFrame(this.render);
-    this.background.render();
-  }
+    this.frameCount++;
+    // if (this.frameCount < 10) {
+    //   window.requestAnimationFrame(this.render);
+    //   return; 
+    // }
+    this.frameCount = 0;
+    // debugger;
+    this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
 
+    this.juggernaut.drawJuggernaut(this.cycleLoop[this.currentLoopIndex]);
+    this.currentLoopIndex++;
+    if (this.currentLoopIndex >= this.cycleLoop.length) {
+      this.currentLoopIndex = 0;
+    }
+    this.background.render();
+    window.requestAnimationFrame(this.render);
+    // this.juggernaut.step();
+
+  }
 
 
   // init() {

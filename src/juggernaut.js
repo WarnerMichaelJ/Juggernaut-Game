@@ -41,47 +41,46 @@ export default class Juggernaut {
     this.canvasDimensions = dimensions;
     this.img = new Image();
     this.img.src = "../assets/spritesheets/Juggernaut_Spritesheet_Simplified.png";
-    this.img.onload = () => {
-      window.requestAnimationFrame(this.step);
-    };
+    // this.img.onload = () => {
+    //   window.requestAnimationFrame(this.step);
+    // };
 
     this.cycleLoop = [0, 1, 0, 2];
     // this.cycleLoop = [0, 1];
 
     this.currentLoopIndex = 0;
     this.frameCount = 0;
-    this.step = this.step.bind(this);
+    // this.step = this.step.bind(this);
     this.drawJuggernaut = this.drawJuggernaut.bind(this);
   }
 
   drawJuggernaut(frameX) {
 
     this.ctx.drawImage(this.img,
-      frameX * 500, CONSTANTS.FRAME_Y * 410, 500, 410,
+      frameX * 500, CONSTANTS.FRAME_Y * 410, 528, 435,
       CONSTANTS.CANVAS_X, CONSTANTS.CANVAS_Y, 100, 82);
   }
 
-  drawGameState() {
 
-  }
+  // step() {
+  //   // debugger; 
+  //   this.frameCount++;
+  //   if (this.frameCount < 10) {
+  //     window.requestAnimationFrame(this.step);
+  //     return;
+  //   }
+  //   this.frameCount = 0;
+  //   this.ctx.clearRect(0, 0, this.canvasDimensions.width, this.canvasDimensions.height);
 
-  step() {
-    // debugger; 
-    this.frameCount++;
-    if (this.frameCount < 10) {
-      window.requestAnimationFrame(this.step);
-      return;
-    }
-    this.frameCount = 0;
-    this.ctx.clearRect(0, 0, this.canvasDimensions.width, this.canvasDimensions.height);
+  //   this.drawJuggernaut(this.cycleLoop[this.currentLoopIndex]);
+  //   this.currentLoopIndex++;
+  //   if (this.currentLoopIndex >= this.cycleLoop.length) {
+  //     this.currentLoopIndex = 0;
+  //   }
+  //   window.requestAnimationFrame(this.step);
+  // }
 
-    this.drawJuggernaut(this.cycleLoop[this.currentLoopIndex]);
-    this.currentLoopIndex++;
-    if (this.currentLoopIndex >= this.cycleLoop.length) {
-      this.currentLoopIndex = 0;
-    }
-    window.requestAnimationFrame(this.step);
-  }
+
 
   // init() {
   //   window.requestAnimationFrame(this.step);
