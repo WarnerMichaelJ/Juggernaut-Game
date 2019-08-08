@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const background = document.getElementById('moving-background');
   const movingBackground = background.getContext('2d');
   const sentenceInput = document.getElementById('sentence-input');
+  const wallCount = document.getElementById('wall-count');
 
-  const juggernautGame = new JuggernautGame(canvas, movingBackground, sentenceInput);
+  const juggernautGame = new JuggernautGame(canvas, movingBackground, sentenceInput, wallCount);
   juggernautGame.render();
 });

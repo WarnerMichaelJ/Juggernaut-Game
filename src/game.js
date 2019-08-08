@@ -5,7 +5,7 @@ import Wall from "./wall";
 import Phrases from "./phrases";
 
 export default class JuggernautGame {
-  constructor(canvas, movingBackground, sentenceInput) {
+  constructor(canvas, movingBackground, sentenceInput, wallCount) {
     
 
     this.ctx = canvas.getContext("2d");
@@ -26,6 +26,8 @@ export default class JuggernautGame {
     // this.restart();
     this.breakable = false; 
     this.wallCount = 0;
+    this.wallCountText = wallCount;
+
     this.wallSpeed = 1; 
     // this.cycleLoop = [0, 1, 0, 0, 1, 0, 0, 1, 0, 2];
     // this.cycleLoop = [0, 1];
@@ -61,8 +63,13 @@ export default class JuggernautGame {
   render() {
     // stops the game if the wall isn't breakable when the wall reaches the juggernaut
     // Will eventually replace this with some type of gameover logic
+    console.log(this.wall.x);
     if (this.wall.x === 181 && this.breakable === false) return; 
-    if (this.wall.x === 180 && this.breakable === true) this.wallCount++;
+    if (this.wall.x < 180 && this.wall.x > 175 && this.breakable === true) {
+      this.wallCount++;
+      console.log(this.wallCount);
+      this.wallCountText.innerHTML = "Walls Smashed: " + this.wallCount;
+    }  
 
     this.input.addEventListener('keydown', this.handlePhrase);
 
@@ -93,10 +100,8 @@ export default class JuggernautGame {
 
     this.juggernaut.drawJuggernaut(this.cycleLoop[this.currentLoopIndex]);
 
-    // if (this.wall.x < 180) {
-    //   this.phrase = this.successfulSmash;
-      
-    // }
+    
+
     if (this.breakable) {
       this.ctx.fillText(this.phrase, 150, 135);
       this.ctx.fillStyle = "green";
