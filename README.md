@@ -20,7 +20,7 @@ In this Juggernaut typing game, users will be able to
 - Instructions for keys used to play the game beneath the game window
 - An opening screen with the Juggernaut and a start button
 - An animated, running Juggernaut 
-- Brick walls as obstacles in the Juggernaut's way, with words above the walls that, when typed, allow the Juggernaut to break through the walls 
+- Brick walls as obstacles in the Juggernaut's way, with words above the juggernaut that, when typed, allow the Juggernaut to break through the walls 
 - A running count of the number of walls gotten through 
 - A running clock at the top
 

@@ -27,7 +27,7 @@ export default class Wall {
   drawWall() {
     // drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
     
-    console.log(this.x);
+
     if (this.x <= -150) this.x = 650;
     // console.log(this.x);
     if (this.x <= 180) {
