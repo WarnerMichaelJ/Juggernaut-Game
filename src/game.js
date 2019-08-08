@@ -19,8 +19,12 @@ export default class JuggernautGame {
 
     this.wall = new Wall(this.ctx);
 
+    this.phrases = new Phrases();
+    this.phrase = "inner monologue"; 
+    this.successfulSmash; 
     // this.registerEvents();
     // this.restart();
+    this.breakable = false; 
 
     // this.cycleLoop = [0, 1, 0, 0, 1, 0, 0, 1, 0, 2];
     // this.cycleLoop = [0, 1];
@@ -31,15 +35,30 @@ export default class JuggernautGame {
 
     this.arcadeMusic = new Audio('../assets/sounds/game_music.wav');
     this.arcadeMusic.loop = true; 
-    
+    // this.arcadeMusic.play();
 
     // this.step = this.step.bind(this);
+    this.handlePhrase = this.handlePhrase.bind(this);
     this.render = this.render.bind(this);
 
   }
 
+  handlePhrase(event) {
+    if (event.keyCode === 13) {
+      let value = this.input.value.trim();
+      if (value === this.phrase) {
+        this.breakable = true; 
+      }
+      this.input.value = "";
+    }
+  }
+
   render() {
-    this.arcadeMusic.play();
+    // stops the game if the wall isn't breakable when the wall reaches the juggernaut
+    if (this.wall.x === 181 && this.breakable === false) return; 
+
+    this.input.addEventListener('keydown', this.handlePhrase);
+
     this.frameCount++;
     if (this.frameCount > 15) {
       this.currentLoopIndex++;
@@ -49,13 +68,33 @@ export default class JuggernautGame {
     this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
 
     this.wall.render();
+    // console.log(this.wall.x);
     this.juggernaut.drawJuggernaut(this.cycleLoop[this.currentLoopIndex]);
+    
+    if (this.wall.x === 649) {
+      this.phrase = this.phrases.sample();
+      this.ctx.font = "15px Georgia";
+      this.ctx.fillStyle = "white";
+      
+      this.breakable = false; 
+    }
+
+    if (this.wall.x === 179) {
+      this.successfulSmash = this.phrases.samplePositivity();
+
+    }
+    if (this.wall.x < 180) {
+      this.phrase = this.successfulSmash;
+      this.ctx.fillStyle = "green";
+      this.ctx.font = "20px Georgia";
+    }
+    this.ctx.fillText(this.phrase, 150, 135);
     // this.currentLoopIndex++;
     if (this.currentLoopIndex >= this.cycleLoop.length) {
       this.currentLoopIndex = 0;
     }
     this.background.render();
-    
+    this.arcadeMusic.play();
     window.requestAnimationFrame(this.render);
     // this.juggernaut.step();
 

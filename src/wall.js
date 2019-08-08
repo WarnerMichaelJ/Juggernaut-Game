@@ -29,7 +29,7 @@ export default class Wall {
     
     
     if (this.x <= -150) this.x = 650;
-    console.log(this.x);
+    // console.log(this.x);
     if (this.x <= 180) {
       if (this.x === 180) this.bricksBreaking.play();
       this.ctx.drawImage(this.img, 
