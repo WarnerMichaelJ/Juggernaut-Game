@@ -20,18 +20,18 @@ export default class Wall {
     this.drawWall = this.drawWall.bind(this);
   }
 
-  moveWall() {
-    this.x -= this.speed; 
+  moveWall(speed = 1.0) {
+    this.x -= speed; 
   }
 
   drawWall() {
     // drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
     
-    
+    console.log(this.x);
     if (this.x <= -150) this.x = 650;
     // console.log(this.x);
     if (this.x <= 180) {
-      if (this.x === 180) this.bricksBreaking.play();
+      if (this.x > 165) this.bricksBreaking.play();
       this.ctx.drawImage(this.img, 
         500, 0, 700, 700, 
         this.x, 100, 150, 150);
@@ -43,8 +43,8 @@ export default class Wall {
     
   }
 
-  render() {
-    this.moveWall();
+  render(speed) {
+    this.moveWall(speed);
     this.drawWall();
   }
 

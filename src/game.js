@@ -26,7 +26,7 @@ export default class JuggernautGame {
     // this.restart();
     this.breakable = false; 
     this.wallCount = 0;
-
+    this.wallSpeed = 1; 
     // this.cycleLoop = [0, 1, 0, 0, 1, 0, 0, 1, 0, 2];
     // this.cycleLoop = [0, 1];
     this.cycleLoop = [0, 1, 0, 2];
@@ -51,8 +51,7 @@ export default class JuggernautGame {
         this.breakable = true; 
         this.successfulSmash = this.phrases.samplePositivity();
         this.phrase = this.successfulSmash; 
-        this.wallCount++; 
-        console.log(this.wallCount);
+        this.wallSpeed = 4.0;
       }
       this.input.value = "";
     }
@@ -61,7 +60,9 @@ export default class JuggernautGame {
 
   render() {
     // stops the game if the wall isn't breakable when the wall reaches the juggernaut
+    // Will eventually replace this with some type of gameover logic
     if (this.wall.x === 181 && this.breakable === false) return; 
+    if (this.wall.x === 180 && this.breakable === true) this.wallCount++;
 
     this.input.addEventListener('keydown', this.handlePhrase);
 
@@ -69,21 +70,24 @@ export default class JuggernautGame {
     if (this.frameCount > 15) {
       this.currentLoopIndex++;
       this.frameCount = 0;
-    }
+    } 
     // debugger;
     this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
 
-    this.wall.render();
     // console.log(this.wall.x);
-    this.juggernaut.drawJuggernaut(this.cycleLoop[this.currentLoopIndex]);
     
-    if (this.wall.x === 649) {
+    if (this.wall.x === 646) {
       this.phrase = this.phrases.sample();
       this.ctx.font = "15px Georgia";
       this.ctx.fillStyle = "white";
       
       this.breakable = false; 
+      this.wallSpeed = 1.0;
     }
+
+     this.wall.render(this.wallSpeed);
+
+    this.juggernaut.drawJuggernaut(this.cycleLoop[this.currentLoopIndex]);
 
     // if (this.wall.x < 180) {
     //   this.phrase = this.successfulSmash;
