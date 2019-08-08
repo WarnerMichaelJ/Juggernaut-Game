@@ -67,7 +67,11 @@ export default class JuggernautGame {
     this.input.addEventListener('keydown', this.handlePhrase);
 
     this.frameCount++;
-    if (this.frameCount > 15) {
+    if (this.frameCount > 15 && !this.breakable) {
+      this.currentLoopIndex++;
+      this.frameCount = 0;
+    } 
+    if (this.frameCount > 5 && this.breakable) {
       this.currentLoopIndex++;
       this.frameCount = 0;
     } 
