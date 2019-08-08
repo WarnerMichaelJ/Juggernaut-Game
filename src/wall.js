@@ -12,8 +12,10 @@ export default class Wall {
 
 
     this.img = new Image();
-    this.img.src = '../assets/spritesheets/Cropped_Brick_Wall.png';
+    this.img.src = '../assets/spritesheets/Brick_Wall_Spritesheet.png';
 
+    this.bricksBreaking = new Audio('../assets/sounds/bricks_breaking.mp3'); 
+    this.bricksBreaking.volume = 0.5; 
     this.moveWall = this.moveWall.bind(this);
     this.drawWall = this.drawWall.bind(this);
   }
@@ -24,12 +26,21 @@ export default class Wall {
 
   drawWall() {
     // drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-  
+    
+    
     if (this.x <= -150) this.x = 500;
     console.log(this.x);
-    this.ctx.drawImage(this.img,
-      0, 0, 1200, 1200,
-      this.x, 110, 150, 150);
+    if (this.x <= 180) {
+      if (this.x === 180) this.bricksBreaking.play();
+      this.ctx.drawImage(this.img, 
+        500, 0, 700, 700, 
+        this.x, 100, 150, 150);
+    } else {
+      this.ctx.drawImage(this.img,
+        0, 0, 500, 600,
+        this.x, 100, 150, 150);
+    }
+    
   }
 
   render() {

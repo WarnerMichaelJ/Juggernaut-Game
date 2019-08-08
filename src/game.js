@@ -3,9 +3,6 @@ import Level from "./level";
 import Background from "./background";
 import Wall from "./wall";
 
-// import spritesheetJuggernaut from "../assets/spritesheets/Mobile - Marvel Avengers Alliance iOS - Juggernaut Classic.png";
-// import yada from "../assets/images/X-Men_background_image.png";
-
 export default class JuggernautGame {
   constructor(canvas, movingBackground) {
     
@@ -17,7 +14,7 @@ export default class JuggernautGame {
     // this.background = new Background(this.ctx);
     this.juggernaut = new Juggernaut(this.ctx, this.dimensions);
     this.wall = new Wall(this.ctx);
-    // this.background.render();
+
     // this.registerEvents();
     // this.restart();
 
@@ -28,12 +25,17 @@ export default class JuggernautGame {
     this.frameCount = 0;
     this.walls = [];
 
+    this.arcadeMusic = new Audio('../assets/sounds/game_music.wav');
+    this.arcadeMusic.loop = true; 
+    
+
     // this.step = this.step.bind(this);
     this.render = this.render.bind(this);
 
   }
 
   render() {
+    this.arcadeMusic.play();
     this.frameCount++;
     if (this.frameCount > 15) {
       this.currentLoopIndex++;
