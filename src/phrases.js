@@ -10,7 +10,7 @@ export default class Phrases {
 
     this.successfulSentences = ["GuEsS sMaShInG's BaCk oN tHe MeNu bOyS!", 
       "YOU'RE A TYPING BEAST", "How are you so good at this =O", 
-      "whoa you type really fast", ];
+      "whoa you type really fast!", "Teach me your typing ways" ];
   }
 
   samplePositivity() {

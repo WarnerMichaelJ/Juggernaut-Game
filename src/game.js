@@ -25,6 +25,7 @@ export default class JuggernautGame {
     // this.registerEvents();
     // this.restart();
     this.breakable = false; 
+    this.wallCount = 0;
 
     // this.cycleLoop = [0, 1, 0, 0, 1, 0, 0, 1, 0, 2];
     // this.cycleLoop = [0, 1];
@@ -46,11 +47,16 @@ export default class JuggernautGame {
   handlePhrase(event) {
     if (event.keyCode === 13) {
       let value = this.input.value.trim();
-      if (value === this.phrase) {
+      if (value === this.phrase && !this.breakable) {
         this.breakable = true; 
+        this.successfulSmash = this.phrases.samplePositivity();
+        this.phrase = this.successfulSmash; 
+        this.wallCount++; 
+        console.log(this.wallCount);
       }
       this.input.value = "";
     }
+    
   }
 
   render() {
@@ -79,16 +85,18 @@ export default class JuggernautGame {
       this.breakable = false; 
     }
 
-    if (this.wall.x === 179) {
-      this.successfulSmash = this.phrases.samplePositivity();
-
-    }
-    if (this.wall.x < 180) {
-      this.phrase = this.successfulSmash;
+    // if (this.wall.x < 180) {
+    //   this.phrase = this.successfulSmash;
+      
+    // }
+    if (this.breakable) {
+      this.ctx.fillText(this.phrase, 150, 135);
       this.ctx.fillStyle = "green";
       this.ctx.font = "20px Georgia";
+    } else {
+      this.ctx.fillText(this.phrase, 150, 135);
     }
-    this.ctx.fillText(this.phrase, 150, 135);
+    
     // this.currentLoopIndex++;
     if (this.currentLoopIndex >= this.cycleLoop.length) {
       this.currentLoopIndex = 0;
