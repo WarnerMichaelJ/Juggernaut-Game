@@ -51,3 +51,21 @@ body > h1 {
   /* color: red;  */
 
 }
+
+#sentence-input {
+  position: absolute;
+  border-radius: 5px; 
+  font-family: "Georgia";
+  background-color: rgba(0, 0, 0, 0.1);
+  color: black;
+  border: 0px solid blue;
+  outline: none;
+  left: 50%;
+  bottom: 50px;
+  transform: translate(-50%, -50%);
+  width: 550px;
+  height: 40px;
+  padding: 0;
+  font-size: 28px;
+  text-align: center;
+}

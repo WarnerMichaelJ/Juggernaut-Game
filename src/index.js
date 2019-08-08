@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const background = document.getElementById('moving-background');
   const movingBackground = background.getContext('2d');
-  const juggernautGame = new JuggernautGame(canvas, movingBackground);
+  const sentenceInput = document.getElementById('sentence-input');
+
+  const juggernautGame = new JuggernautGame(canvas, movingBackground, sentenceInput);
   juggernautGame.render();
 });

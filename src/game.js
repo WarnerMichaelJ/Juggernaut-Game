@@ -2,9 +2,10 @@ import Juggernaut from "./juggernaut";
 import Level from "./level";
 import Background from "./background";
 import Wall from "./wall";
+import Phrases from "./phrases";
 
 export default class JuggernautGame {
-  constructor(canvas, movingBackground) {
+  constructor(canvas, movingBackground, sentenceInput) {
     
 
     this.ctx = canvas.getContext("2d");
@@ -13,6 +14,9 @@ export default class JuggernautGame {
     this.background = new Background(movingBackground);
     // this.background = new Background(this.ctx);
     this.juggernaut = new Juggernaut(this.ctx, this.dimensions);
+
+    this.input = sentenceInput;
+
     this.wall = new Wall(this.ctx);
 
     // this.registerEvents();

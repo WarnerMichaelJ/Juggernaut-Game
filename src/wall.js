@@ -5,7 +5,7 @@ const WALL_SPRITESHEET_COORDINATE = {
 
 export default class Wall {
   constructor(ctx, props) {
-    this.x = 500; 
+    this.x = 650; 
     // this.y = props.y;
     this.speed = 1.0;
     this.ctx = ctx; 
@@ -28,7 +28,7 @@ export default class Wall {
     // drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
     
     
-    if (this.x <= -150) this.x = 500;
+    if (this.x <= -150) this.x = 650;
     console.log(this.x);
     if (this.x <= 180) {
       if (this.x === 180) this.bricksBreaking.play();
