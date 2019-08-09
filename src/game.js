@@ -62,7 +62,17 @@ export default class JuggernautGame {
   }
 
   handleMusic() {
-    this.arcadeMusic.muted = !this.arcadeMusic.muted;
+    let muteButton = document.getElementById("arcade-music");
+    // this.arcadeMusic.muted = !this.arcadeMusic.muted;
+    if (!this.arcadeMusic.muted) {
+      this.arcadeMusic.muted = !this.arcadeMusic.muted;
+      muteButton.classList.add("muted");
+      muteButton.innerHTML = "UNMUTE MUSIC";
+    } else {
+      this.arcadeMusic.muted = !this.arcadeMusic.muted;
+      muteButton.classList.remove("muted");
+      muteButton.innerHTML = "Mute Music ";
+    }
   }
 
   render() {
