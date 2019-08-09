@@ -55,8 +55,9 @@ export default class JuggernautGame {
         this.successfulSmash = this.phrases.samplePositivity();
         this.phrase = this.successfulSmash; 
         this.wallSpeed = 4.0;
+        this.input.value = "";
       }
-      this.input.value = "";
+
     }
     
   }

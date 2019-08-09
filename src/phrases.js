@@ -1,6 +1,6 @@
 export default class Phrases {
   constructor() {
-    this.sentences = ["yeah it's the juggernaut!", "slow motion for me", 
+    this.sentences = ["yeah it's the juggernaut!", "slow motion for me", "I miss NBA Jam",
     "I like it like that", "smash that wall", 
     "type this type this", "no one asks, hey how's the juggernaut?", "smash smash smash", 
     "you think this is a game?", "was I in deadpool 2", 

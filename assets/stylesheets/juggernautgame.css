@@ -105,3 +105,19 @@ body > h1 {
   /* text-decoration: line-through; */
   font-weight: 700;
 }
+
+.displaynone {
+  display: none; 
+}
+
+
+#start-screen {
+  position: absolute; 
+  z-index: 100;
+
+  margin:auto;
+  width: 761px;
+  height: 291px; 
+  background: black; 
+}
+

@@ -19,8 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
   arcadeMusic.addEventListener('mousedown', (e) => {
     e.preventDefault();
     juggernautGame.handleMusic();
-    canvas.focus();
+    // canvas.focus();
   });
 
-  juggernautGame.render();
+
+  const startScreen = document.getElementById('start-screen');
+  const startButton = document.getElementById('start-button');
+
+  startButton.addEventListener('click', (e) => {
+    startScreen.classList.add('displaynone');
+    startButton.classList.add('displaynone');
+    juggernautGame.render();
+
+  }
+  );
+
+  // juggernautGame.render();
 });
