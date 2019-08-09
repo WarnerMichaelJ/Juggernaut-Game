@@ -10,7 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const movingBackground = background.getContext('2d');
   const sentenceInput = document.getElementById('sentence-input');
   const wallCount = document.getElementById('wall-count');
+  wallCount.innerHTML = "Walls Smashed: 0";
+
+  const arcadeMusic = document.getElementById('arcade-music');
 
   const juggernautGame = new JuggernautGame(canvas, movingBackground, sentenceInput, wallCount);
+
+  arcadeMusic.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    juggernautGame.handleMusic();
+    canvas.focus();
+  });
+
   juggernautGame.render();
 });

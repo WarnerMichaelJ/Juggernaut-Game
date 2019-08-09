@@ -18,6 +18,8 @@ body > h1 {
   margin-top: 5%;
   /* background: url("../images/Urban_Decay_Arcade_Background.jpg"); */
   margin-left: 10%;
+  height: 290px; 
+  width: 760px; 
 }
 
 #juggernaut-game, #moving-background {
@@ -61,7 +63,7 @@ body > h1 {
   border: 0px solid blue;
   outline: none;
   left: 50%;
-  bottom: 50px;
+  bottom: 85px;
   transform: translate(-50%, -50%);
   width: 550px;
   height: 40px;
@@ -78,3 +80,23 @@ body > h1 {
   font-size: 20px; 
 }
 
+#canvas-header-elements {
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-between
+}
+
+
+#arcade-music {
+  color: black;
+  z-index: 2;
+  cursor: pointer; 
+  color: white; 
+}
+
+.fas.fa-volume-up {
+  /* position: absolute;  */
+  padding-top: 15px; 
+  padding-right: 15px; 
+  padding-left: 8px; 
+}

@@ -1,23 +1,4 @@
 
-
-// const CONSTANTS = {
-//   RUNNING_SPEED: 8,
-//   JUGGERNAUT_WIDTH: 40,
-//   JUGGERNAUT_HEIGHT: 30
-// };
-
-// export default class Juggernaut {
-//   constructor(dimensions) {
-//     this.dimensions = dimensions; 
-//     this.x = this.dimensions.width / 3;
-//     this.y = this.dimensions.height / 2;
-//     this.vel = 0;
-//   }
-
-
-
-// }
-
 const CONSTANTS = {
   JUGGERNAUT_WIDTH: 530,
   JUGGERNAUT_HEIGHT: 430,
@@ -33,17 +14,10 @@ export default class Juggernaut {
     // this.y = this.dimensions.height / 2;
     this.ctx = ctx; 
 
-
-    // this.imgBackground = new Image();
-    // this.imgBackground.src = "../assets/images/X-Men_background_image.png";
-    // this.imgBackground.id = "imgBackground";
-    
     this.canvasDimensions = dimensions;
     this.img = new Image();
     this.img.src = "../assets/spritesheets/Juggernaut_Spritesheet_Simplified.png";
-    // this.img.onload = () => {
-    //   window.requestAnimationFrame(this.step);
-    // };
+
 
     this.cycleLoop = [0, 1, 0, 2];
     // this.cycleLoop = [0, 1];
@@ -95,9 +69,4 @@ export default class Juggernaut {
   //   };
   // }
 
-  // outOfBounds() {
-  //   const aboveTheTop = this.y < 0;
-  //   const belowTheBottom = this.y + CONSTANTS.JUGGERNAUT_HEIGHT > this.dimensions.height;
-  //   return aboveTheTop || belowTheBottom;
-  // }
 }
