@@ -143,8 +143,45 @@ body > h1 {
 #game-over-screen {
   position: absolute; 
   z-index: 20; 
-  background: transparent; 
+  background: rgba(0, 0, 0, 0.5);
   margin:auto;
   width: 1000px;
   height: 381px; 
+  text-align: center; 
+  animation: fadeIn 0.8s;
+}
+
+#game-over-h1 {
+  font-size: 50px;
+  font-family: monospace;
+  color: red;
+  font-weight: 700;
+  margin-top: 100px;
+  animation: spin 0.5s;
+}
+
+#game-over-prompt {
+  color: white;
+  margin-top: 20px;
+  font-size: 30px;
+  animation: spin 0.5s;
+}
+
+@keyframes fadeIn {
+	from { 
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes spin { 
+    100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+    100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin {
+     100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } 
 }
