@@ -25,16 +25,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const startScreen = document.getElementById('start-screen');
   const startButton = document.getElementById('start-button');
+  
 
   startButton.addEventListener('click', (e) => {
     startScreen.classList.add('displaynone');
-    startButton.classList.add('displaynone');
+    // startButton.classList.add('displaynone');
     juggernautGame.arcadeMusic.play();
     // window.arcadeMusic = juggernautGame.arcadeMusic;
     juggernautGame.render();
+    sentenceInput.focus();
+  });
 
-  }
-  );
+  const instructionsButton = document.getElementById('how-to-play');
+  const instructionsModalParentDiv = document.getElementById('instructions-modal-parent-div');
+
+  instructionsButton.addEventListener('click', (e) => {
+    console.log("inside-instructions-button-click");
+    instructionsModalParentDiv.classList.remove('displaynone');
+  });
+
+  instructionsModalParentDiv.addEventListener('click', (e) => {
+    instructionsModalParentDiv.classList.add('displaynone');
+  });
 
   // juggernautGame.render();
 });

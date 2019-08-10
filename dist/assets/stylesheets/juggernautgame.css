@@ -116,11 +116,11 @@ body > h1 {
 
 #start-screen {
   position: absolute; 
-  z-index: 100;
+  z-index: 20;
 
   margin:auto;
-  width: 1000px;
-  height: 381px; 
+  width: 1001px;
+  height: 382px; 
   background: black; 
 }
 
@@ -184,4 +184,29 @@ body > h1 {
 }
 @keyframes spin {
      100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } 
+}
+
+
+#instructions-modal-parent-div {
+  z-index: 21; 
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  animation: fadeIn 0.3s; 
+}
+
+#instructions-modal-child-div {
+  z-index: 22; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 50%; 
+  background: white; 
+  color: black; 
+  border-radius: 8px; 
 }

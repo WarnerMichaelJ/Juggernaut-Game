@@ -1,5 +1,4 @@
 import Juggernaut from "./juggernaut";
-import Level from "./level";
 import Background from "./background";
 import Wall from "./wall";
 import Phrases from "./phrases";
