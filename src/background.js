@@ -1,10 +1,10 @@
-const CANVAS_HEIGHT = 300;
-const CANVAS_WIDTH = 760;
+const CANVAS_HEIGHT = 381;
+const CANVAS_WIDTH = 1000;
 
 class MovingBackground {
   constructor(movingBackground) {
 
-    this.imgCoordinates = [0, 0, CANVAS_WIDTH, CANVAS_HEIGHT];
+    this.imgCoordinates = [0, 0, 759, 285];
     this.canvasCoordinates1 = [null, 0, CANVAS_WIDTH, CANVAS_HEIGHT];
     this.canvasCoordinates2 = [null, 0, CANVAS_WIDTH, CANVAS_HEIGHT];
     this.xCurrent = 0;

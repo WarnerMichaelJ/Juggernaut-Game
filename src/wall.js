@@ -3,6 +3,10 @@ const WALL_SPRITESHEET_COORDINATE = {
 
 };
 
+const WALL_CONSTANTS = {
+
+};
+
 
 export default class Wall {
   constructor(ctx, props) {
@@ -35,11 +39,11 @@ export default class Wall {
       if (this.x > 165) this.bricksBreaking.play();
       this.ctx.drawImage(this.img, 
         500, 0, 700, 700, 
-        this.x, 100, 150, 150);
+        this.x, 125, 200, 200);
     } else {
       this.ctx.drawImage(this.img,
         0, 0, 500, 600,
-        this.x, 100, 150, 150);
+        this.x, 125, 200, 200);
     }
     
   }

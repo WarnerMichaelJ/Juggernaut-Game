@@ -3,8 +3,8 @@ const CONSTANTS = {
   JUGGERNAUT_WIDTH: 530,
   JUGGERNAUT_HEIGHT: 430,
   FRAME_Y: 0,
-  CANVAS_X: 150,
-  CANVAS_Y: 150
+  CANVAS_X: 145,
+  CANVAS_Y: 185
 };
 
 export default class Juggernaut {
@@ -31,8 +31,8 @@ export default class Juggernaut {
   drawJuggernaut(frameX) {
 
     this.ctx.drawImage(this.img,
-      frameX * 500, CONSTANTS.FRAME_Y * 410, 528, 435,
-      CONSTANTS.CANVAS_X, CONSTANTS.CANVAS_Y, 100, 82);
+      frameX * 500, 0, 528, 435,
+      CONSTANTS.CANVAS_X, CONSTANTS.CANVAS_Y, 146, 120);
   }
 
 
