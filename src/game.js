@@ -35,7 +35,7 @@ export default class JuggernautGame {
     this.frameCount = 0;
     this.walls = [];
 
-    this.arcadeMusic = new Audio('../assets/sounds/game_music.wav');
+    this.arcadeMusic = new Audio('./assets/sounds/game_music.wav');
     this.arcadeMusic.loop = true; 
     // this.arcadeMusic.muted = !this.arcadeMusic.muted; 
     // this.arcadeMusic.play();
@@ -49,8 +49,8 @@ export default class JuggernautGame {
 
   handlePhrase(event) {
     if (event.keyCode === 13) {
-      let value = this.input.value.trim();
-      if (value === this.phrase && !this.breakable) {
+      let value = this.input.value.trim().toLowerCase();
+      if (value === this.phrase.toLowerCase() && !this.breakable) {
         this.breakable = true; 
         this.successfulSmash = this.phrases.samplePositivity();
         this.phrase = this.successfulSmash; 
@@ -130,7 +130,7 @@ export default class JuggernautGame {
       this.currentLoopIndex = 0;
     }
     this.background.render();
-    this.arcadeMusic.play();
+
     window.requestAnimationFrame(this.render);
     // this.juggernaut.step();
 

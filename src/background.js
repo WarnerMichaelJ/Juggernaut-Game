@@ -12,7 +12,7 @@ class MovingBackground {
     this.context = movingBackground;
 
     this.img = new Image();
-    this.img.src = '../assets/images/X-Men_background_image.png';
+    this.img.src = './assets/images/X-Men_background_image.png';
     // debugger;
     this.drawBackground = this.drawBackground.bind(this);
     this.render = this.render.bind(this);

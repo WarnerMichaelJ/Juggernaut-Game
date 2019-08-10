@@ -16,7 +16,7 @@ export default class Juggernaut {
 
     this.canvasDimensions = dimensions;
     this.img = new Image();
-    this.img.src = "../assets/spritesheets/Juggernaut_Spritesheet_Simplified.png";
+    this.img.src = "./assets/spritesheets/Juggernaut_Spritesheet_Simplified.png";
 
 
     this.cycleLoop = [0, 1, 0, 2];

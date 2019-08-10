@@ -3,6 +3,7 @@ const WALL_SPRITESHEET_COORDINATE = {
 
 };
 
+
 export default class Wall {
   constructor(ctx, props) {
     this.x = 650; 
@@ -12,9 +13,9 @@ export default class Wall {
 
 
     this.img = new Image();
-    this.img.src = '../assets/spritesheets/Brick_Wall_Spritesheet.png';
+    this.img.src = './assets/spritesheets/Brick_Wall_Spritesheet.png';
 
-    this.bricksBreaking = new Audio('../assets/sounds/bricks_breaking.mp3'); 
+    this.bricksBreaking = new Audio('./assets/sounds/bricks_breaking.mp3'); 
     this.bricksBreaking.volume = 0.5; 
     this.moveWall = this.moveWall.bind(this);
     this.drawWall = this.drawWall.bind(this);

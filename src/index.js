@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const juggernautGame = new JuggernautGame(canvas, movingBackground, sentenceInput, wallCount);
 
-  arcadeMusic.addEventListener('mousedown', (e) => {
+  arcadeMusic.addEventListener('click', (e) => {
     e.preventDefault();
     juggernautGame.handleMusic();
     // canvas.focus();
@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
   startButton.addEventListener('click', (e) => {
     startScreen.classList.add('displaynone');
     startButton.classList.add('displaynone');
+    juggernautGame.arcadeMusic.play();
+    // window.arcadeMusic = juggernautGame.arcadeMusic;
     juggernautGame.render();
 
   }
