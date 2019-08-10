@@ -7,6 +7,10 @@ import Phrases from "./phrases";
 export default class JuggernautGame {
   constructor(canvas, movingBackground, sentenceInput, wallCount) {
     
+    this.canvas = canvas; 
+    this.movingBackground = movingBackground;
+    this.input = sentenceInput;
+    
 
     this.ctx = canvas.getContext("2d");
     this.dimensions = { width: canvas.width, height: canvas.height };
@@ -15,7 +19,6 @@ export default class JuggernautGame {
     // this.background = new Background(this.ctx);
     this.juggernaut = new Juggernaut(this.ctx, this.dimensions);
 
-    this.input = sentenceInput;
 
     this.wall = new Wall(this.ctx);
 
@@ -37,12 +40,14 @@ export default class JuggernautGame {
 
     this.arcadeMusic = new Audio('./assets/sounds/game_music.wav');
     this.arcadeMusic.loop = true; 
-    // this.arcadeMusic.muted = !this.arcadeMusic.muted; 
-    // this.arcadeMusic.play();
 
-    // this.step = this.step.bind(this);
+
+    this.gameOverScreen = document.getElementById("game-over-screen");
+
     this.handlePhrase = this.handlePhrase.bind(this);
     this.handleMusic = this.handleMusic.bind(this);
+    this.handleGameOver = this.handleGameOver.bind(this);
+    this.handleRestart = this.handleRestart.bind(this);
     this.render = this.render.bind(this);
 
   }
@@ -76,11 +81,28 @@ export default class JuggernautGame {
     }
   }
 
+  handleGameOver() {
+    this.gameOverScreen.classList.remove("displaynone");
+    document.addEventListener('click', this.handleRestart);
+  }
+
+  handleRestart() {
+    // event.preventDefault();
+    this.wallCountText.innerHTML = "Walls Smashed: 0";
+    let newGame = new JuggernautGame(this.canvas, this.movingBackground, this.input, this.wallCountText);
+    newGame.render();
+    document.removeEventListener("click", this.handleRestart);
+    this.gameOverScreen.classList.add("displaynone");
+  }
+
   render() {
     // stops the game if the wall isn't breakable when the wall reaches the juggernaut
     // Will eventually replace this with some type of gameover logic
 
-    if (this.wall.x === 181 && this.breakable === false) return; 
+    if (this.wall.x === 181 && this.breakable === false) {
+      this.handleGameOver(); 
+      return; 
+    }
     if (this.wall.x < 180 && this.wall.x > 175 && this.breakable === true) {
       this.wallCount++;
 
@@ -118,7 +140,7 @@ export default class JuggernautGame {
     
 
     if (this.breakable) {
-      this.ctx.fillText(this.phrase, 150, 135);
+      this.ctx.fillText(this.phrase, 150, 170);
       this.ctx.fillStyle = "green";
       this.ctx.font = "30px Georgia";
     } else {

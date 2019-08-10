@@ -139,3 +139,12 @@ body > h1 {
   font-family: monospace;
   padding: 5px;
 }
+
+#game-over-screen {
+  position: absolute; 
+  z-index: 20; 
+  background: transparent; 
+  margin:auto;
+  width: 1000px;
+  height: 381px; 
+}
