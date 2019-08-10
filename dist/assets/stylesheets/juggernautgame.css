@@ -8,14 +8,15 @@ canvas {
 }
 
 body > h1 {
-  margin-top: 25px; 
-  font-size: 25px; 
-  font-weight: 700; 
+  margin-top: 25px;
+  font-size: 35px;
+  font-weight: 700;
+  font-family: monospace;
 }
 
 #canvas-div {
   margin: 0 auto;
-  margin-top: 5%;
+  margin-top: 2%;
 
   margin-left: 15%;
   height: 381px; 
@@ -38,7 +39,7 @@ body > h1 {
   flex-direction: row; 
   justify-content: space-around;
   color: black; 
-  font-size: 25px; 
+  font-size: 45px; 
   margin: 120px auto 0px auto;
   height: 40px;
   width: 80%;
@@ -89,6 +90,7 @@ body > h1 {
 
 
 #arcade-music {
+  font-size: 20px; 
   padding-top: 15px; 
   padding-right: 15px; 
   color: white;
