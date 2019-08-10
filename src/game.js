@@ -54,8 +54,8 @@ export default class JuggernautGame {
 
   handlePhrase(event) {
     if (event.keyCode === 13) {
-      let value = this.input.value.trim().toLowerCase();
-      if (value === this.phrase.toLowerCase() && !this.breakable) {
+      let value = this.input.value.trim();
+      if (value === this.phrase && !this.breakable) {
         this.breakable = true; 
         this.successfulSmash = this.phrases.samplePositivity();
         this.phrase = this.successfulSmash; 
@@ -83,7 +83,7 @@ export default class JuggernautGame {
 
   handleGameOver() {
     this.gameOverScreen.classList.remove("displaynone");
-    document.addEventListener('click', this.handleRestart);
+    this.gameOverScreen.addEventListener('click', this.handleRestart);
   }
 
   handleRestart() {
@@ -91,7 +91,7 @@ export default class JuggernautGame {
     this.wallCountText.innerHTML = "Walls Smashed: 0";
     let newGame = new JuggernautGame(this.canvas, this.movingBackground, this.input, this.wallCountText);
     newGame.render();
-    document.removeEventListener("click", this.handleRestart);
+    this.gameOverScreen.removeEventListener("click", this.handleRestart);
     this.gameOverScreen.classList.add("displaynone");
   }
 
