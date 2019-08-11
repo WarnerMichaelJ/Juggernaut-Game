@@ -204,9 +204,51 @@ body > h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 40%;
-  height: 50%; 
+  width: 60%;
+  height: 80%; 
   background: white; 
   color: black; 
   border-radius: 8px; 
+  text-align: center; 
+}
+
+#instructions-modal-child-div > h2 {
+  font-weight: 700; 
+  margin-top: 25px; 
+  font-size: 40px; 
+  font-family: monospace;
+}
+
+.fas.fa-times {
+  position: absolute; 
+  top: 3%; 
+  right: 3%; 
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 8px;
+  border-radius: 50%;
+  font-size: 25px; 
+}
+
+.fas.fa-times:hover {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+#instructions-screenshot {
+  margin-top: 15px;
+  width: 85%; 
+}
+
+#instructions-modal-child-div > h3 {
+  margin-top: 15px; 
+  font-size: 22px; 
+  font-weight: 700;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: left;
+  margin-left: 7.5%; 
+  margin-right: 7.5%;
 }
