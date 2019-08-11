@@ -1,6 +1,7 @@
 import Juggernaut from "./juggernaut";
 import Background from "./background";
 import Wall from "./wall";
+import OtherWalls from "./other_walls";
 import Phrases from "./phrases";
 
 export default class JuggernautGame {
@@ -20,6 +21,7 @@ export default class JuggernautGame {
 
 
     this.wall = new Wall(this.ctx);
+    this.otherWalls = new OtherWalls(this.ctx);
 
     this.phrases = new Phrases();
     this.phrase = "inner monologue"; 
@@ -132,7 +134,8 @@ export default class JuggernautGame {
       this.wallSpeed = 1.0;
     }
 
-     this.wall.render(this.wallSpeed);
+    this.wall.render(this.wallSpeed);
+    // this.otherWalls.render(this.wallSpeed);
 
     this.juggernaut.drawJuggernaut(this.cycleLoop[this.currentLoopIndex]);
 

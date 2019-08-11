@@ -124,20 +124,27 @@ body > h1 {
   background: black; 
 }
 
-#start-button {
-  color: white; 
-  background: red;
+#start-screen > button {
   border-radius: 5px;
   font-family: monospace;
   padding: 5px;
+  font-size: 20px; 
+}
+
+#start-screen-gif {
+  height: 90%; 
+}
+
+#start-button {
+  color: white; 
+  background: red;
+  margin-right: 30px;
+  margin-left: 50px;
 }
 
 #how-to-play {
   color: white;
   background: blue; 
-  border-radius: 5px;
-  font-family: monospace;
-  padding: 5px;
 }
 
 #game-over-screen {
