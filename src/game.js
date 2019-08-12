@@ -31,20 +31,30 @@ export default class JuggernautGame {
     this.wallCount = 0;
     this.wallCountText = wallCount;
 
+    this.level = 1;
+    this.levelDisplay = document.getElementById("current-level");
+
     this.wallSpeed = 1; 
     // this.cycleLoop = [0, 1, 0, 0, 1, 0, 0, 1, 0, 2];
     // this.cycleLoop = [0, 1];
     this.cycleLoop = [0, 1, 0, 2];
     this.currentLoopIndex = 0;
     this.frameCount = 0;
-    this.walls = [];
+    
 
     this.arcadeMusic = new Audio('./assets/sounds/game_music.wav');
     this.arcadeMusic.loop = true; 
 
 
     this.gameOverScreen = document.getElementById("game-over-screen");
+    this.levelInfo = document.getElementById("level-info");
 
+    this.handleLevel = this.handleLevel.bind(this);
+    this.handleCollision = this.handleCollision.bind(this);
+    this.juggernautLoopIterate = this.juggernautLoopIterate.bind(this);
+    this.whichWall = this.whichWall.bind(this);
+    this.renderLevelInfo = this.renderLevelInfo.bind(this);
+    this.removeLevelInfo = this.removeLevelInfo.bind(this);
     this.handlePhrase = this.handlePhrase.bind(this);
     this.handleMusic = this.handleMusic.bind(this);
     this.handleGameOver = this.handleGameOver.bind(this);
@@ -90,43 +100,110 @@ export default class JuggernautGame {
   handleRestart() {
     // event.preventDefault();
     this.wallCountText.innerHTML = "Walls Smashed: 0";
+    this.levelDisplay.innerHTML = "Level 1";
     let newGame = new JuggernautGame(this.canvas, this.movingBackground, this.input, this.wallCountText);
     newGame.render();
     this.gameOverScreen.removeEventListener("click", this.handleRestart);
     this.gameOverScreen.classList.add("displaynone");
   }
 
-  render() {
-    // stops the game if the wall isn't breakable when the wall reaches the juggernaut
-    // Will eventually replace this with some type of gameover logic
+  handleLevel() {
+    if (this.wallCount === 5) {
+      this.level = 2; 
+      this.levelDisplay.innerHTML = "Level " + this.level;
+      this.renderLevelInfo();
+    } else if (this.wallCount === 15) {
+      this.level = 3; 
+      this.levelDisplay.innerHTML = "Level " + this.level;
+    } else if (this.wallCount === 25) {
+      this.level = 4; 
+      this.levelDisplay.innerHTML = "Level " + this.level;
+    } else if (this.wallCount === 35) {
+      this.level = 5;
+      this.levelDisplay.innerHTML = "Level " + this.level;
+    }
+  }
 
+  renderLevelInfo() {
+    let levelInfoParagraph1 = document.getElementById("level-info-p-tag1");
+    let levelInfoParagraph2 = document.getElementById("level-info-p-tag2");
+    if (this.level === 2) {
+      this.levelInfo.classList.remove("displaynone");
+      levelInfoParagraph1.innerHTML = "LEVEL 2!";
+      levelInfoParagraph2.innerHTML = "You've unlocked new sentences!";
+      setTimeout(this.removeLevelInfo, 1000);
+    }
+    if (this.level === 3) {
+      this.levelInfo.classList.remove("displaynone");
+      levelInfoParagraph1.innerHTML = "LEVEL 3!";
+      levelInfoParagraph2.innerHTML = "You've got new walls to smash!";
+      setTimeout(this.removeLevelInfo, 1000);
+    }
+    if (this.level === 4) {
+      this.levelInfo.classList.remove("displaynone");
+      levelInfoParagraph1.innerHTML = "LEVEL 4!";
+      levelInfoParagraph2.innerHTML = "You can now break the 4th wall!";
+      setTimeout(this.removeLevelInfo, 1000);
+    }
+    if (this.level === 5) {
+      this.levelInfo.classList.remove("displaynone");
+      levelInfoParagraph1.innerHTML = "LEVEL 5!";
+      levelInfoParagraph2.innerHTML = "Uhh I'll add something later!";
+      setTimeout(this.removeLevelInfo, 1000);
+    }
+  }
+
+  removeLevelInfo() {
+    this.levelInfo.classList.add("displaynone");
+  }
+
+  handleCollision() {
     if (this.wall.x === 181 && this.breakable === false) {
-      this.handleGameOver(); 
-      return; 
+      this.handleGameOver();
+      return true;
     }
     if (this.wall.x < 180 && this.wall.x > 175 && this.breakable === true) {
       this.wallCount++;
 
       this.wallCountText.innerHTML = "Walls Smashed: " + this.wallCount;
+      return false; 
     }  
+  }
 
-    this.input.addEventListener('keydown', this.handlePhrase);
-
-    this.frameCount++;
+  juggernautLoopIterate() {
     if (this.frameCount > 15 && !this.breakable) {
       this.currentLoopIndex++;
       this.frameCount = 0;
-    } 
+    }
     if (this.frameCount > 5 && this.breakable) {
       this.currentLoopIndex++;
       this.frameCount = 0;
     } 
-    // debugger;
+  }
+
+  whichWall() {
+
+  }
+
+  render() {
+    
+    this.handleLevel();
+
+    // this.handleCollision();
+    if (this.handleCollision()) {
+      return; 
+    }
+
+    this.input.addEventListener('keydown', this.handlePhrase);
+
+    this.frameCount++;
+    this.juggernautLoopIterate();
+    
     this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
 
 
     if (this.wall.x === 646) {
-      this.phrase = this.phrases.sample();
+      this.phrase = this.phrases.sample(this.level);
       this.ctx.font = "30px Georgia";
       this.ctx.fillStyle = "white";
       
@@ -134,7 +211,7 @@ export default class JuggernautGame {
       this.wallSpeed = 1.0;
     }
 
-    this.wall.render(this.wallSpeed);
+    this.wall.render(this.wallSpeed, this.level);
     // this.otherWalls.render(this.wallSpeed);
 
     this.juggernaut.drawJuggernaut(this.cycleLoop[this.currentLoopIndex]);

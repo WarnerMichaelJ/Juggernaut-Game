@@ -48,7 +48,7 @@ export default class Wall {
     
   }
 
-  render(speed) {
+  render(speed, level) {
     this.moveWall(speed);
     this.drawWall();
   }

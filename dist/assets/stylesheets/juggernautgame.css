@@ -82,6 +82,14 @@ body > h1 {
   font-size: 20px; 
 }
 
+#current-level {
+  padding-top: 15px;
+  padding-left: 15px; 
+  font-weight: 700;
+  color: white; 
+  font-size: 25px; 
+}
+
 #canvas-header-elements {
   display: flex; 
   flex-direction: row;
@@ -258,4 +266,39 @@ body > h1 {
   text-align: left;
   margin-left: 7.5%; 
   margin-right: 7.5%;
+}
+
+#level-info {
+  position: absolute; 
+  top: 145px;
+  left: 38%;
+  width: 420px; 
+  font-size: 30px; 
+  font-weight: 700;
+  text-align: center;
+  color: #fff; 
+  text-shadow: 0 0 20px #ff005b; 
+  animation: zoomEffect 1s; 
+}
+
+#level-info-p-tag1 {
+  font-size: 40px; 
+}
+
+@keyframes zoomEffect{
+  0%{
+    transform:scale(0.9);
+  }
+  25%{
+    transform:scale(1.4);
+  }
+  50%{
+    transform:scale(0.9);
+  }
+  75%{
+    transform:scale(1.4);
+  }
+  100%{
+    transform:scale(0.9);
+  }
 }

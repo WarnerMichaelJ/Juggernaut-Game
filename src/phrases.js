@@ -1,6 +1,6 @@
 export default class Phrases {
   constructor() {
-    this.sentences = ["yeah it's the juggernaut!", "slow motion for me", "I miss NBA Jam",
+    this.sentences = ["I miss NBA Jam",
     "I like it like that", "smash that wall", "my neck's wider than a pillow", "I can't turn my neck",
     "type this type this", "no one asks, hey how's the juggernaut?", "smash smash smash", 
     "you think this is a game?", "was I in deadpool 2", 
@@ -8,6 +8,10 @@ export default class Phrases {
     "this road never ends amirite", "this is a long street", 
     "why does this road have walls", "most intense jog ever", "damn I hate cardio",
     "damn helmet no peripheral vision", "I don't remember why I hate walls so much"];
+
+    this.shorterSentences = ["type this type this", "damn I hate cardio", "smash that wall", 
+      "smash smash smash", "slow motion for me", "what a morning jog", "this is a long street", "yeah it's the juggernaut!", 
+    "welcome to smashville"];
 
     this.successfulSentences = ["GuEsS sMaShInG's BaCk oN tHe MeNu bOyS!", 
       "YOU'RE A TYPING BEAST", "How are you so good at this =O", 
@@ -19,7 +23,10 @@ export default class Phrases {
     return this.successfulSentences[Math.floor(Math.random() * this.successfulSentences.length)];
   }
 
-  sample() {
+  sample(level) {
+    if (level === 1) {
+      return this.shorterSentences[Math.floor(Math.random() * this.shorterSentences.length)];
+    }
     return this.sentences[Math.floor(Math.random() * this.sentences.length)];
   }
   
