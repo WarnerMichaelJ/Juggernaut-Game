@@ -10,7 +10,7 @@ export default class Phrases {
     "damn helmet no peripheral vision", "I don't remember why I hate walls so much"];
 
     this.shorterSentences = ["type this type this", "damn I hate cardio", "smash that wall", 
-      "smash smash smash", "slow motion for me", "what a morning jog", "this is a long street", "yeah it's the juggernaut!", 
+      "smash smash smash", "slow motion for me", "what a great jog", "this is a long street", "yeah it's the juggernaut!", 
     "welcome to smashville"];
 
     this.successfulSentences = ["GuEsS sMaShInG's BaCk oN tHe MeNu bOyS!", 

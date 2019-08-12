@@ -45,6 +45,7 @@ export default class JuggernautGame {
     this.arcadeMusic = new Audio('./assets/sounds/game_music.wav');
     this.arcadeMusic.loop = true; 
 
+    this.wallType = "brick";
 
     this.gameOverScreen = document.getElementById("game-over-screen");
     this.levelInfo = document.getElementById("level-info");
@@ -52,7 +53,7 @@ export default class JuggernautGame {
     this.handleLevel = this.handleLevel.bind(this);
     this.handleCollision = this.handleCollision.bind(this);
     this.juggernautLoopIterate = this.juggernautLoopIterate.bind(this);
-    this.whichWall = this.whichWall.bind(this);
+
     this.renderLevelInfo = this.renderLevelInfo.bind(this);
     this.removeLevelInfo = this.removeLevelInfo.bind(this);
     this.handlePhrase = this.handlePhrase.bind(this);
@@ -112,15 +113,18 @@ export default class JuggernautGame {
       this.level = 2; 
       this.levelDisplay.innerHTML = "Level " + this.level;
       this.renderLevelInfo();
-    } else if (this.wallCount === 15) {
+    } else if (this.wallCount === 10) {
       this.level = 3; 
       this.levelDisplay.innerHTML = "Level " + this.level;
-    } else if (this.wallCount === 25) {
+      this.renderLevelInfo();
+    } else if (this.wallCount === 15) {
       this.level = 4; 
       this.levelDisplay.innerHTML = "Level " + this.level;
-    } else if (this.wallCount === 35) {
+      this.renderLevelInfo();
+    } else if (this.wallCount === 25) {
       this.level = 5;
       this.levelDisplay.innerHTML = "Level " + this.level;
+      this.renderLevelInfo();
     }
   }
 
@@ -148,7 +152,7 @@ export default class JuggernautGame {
     if (this.level === 5) {
       this.levelInfo.classList.remove("displaynone");
       levelInfoParagraph1.innerHTML = "LEVEL 5!";
-      levelInfoParagraph2.innerHTML = "Uhh I'll add something later!";
+      levelInfoParagraph2.innerHTML = "YOU'RE ON FIRE!";
       setTimeout(this.removeLevelInfo, 1000);
     }
   }
@@ -181,10 +185,6 @@ export default class JuggernautGame {
     } 
   }
 
-  whichWall() {
-
-  }
-
   render() {
     
     this.handleLevel();
@@ -202,6 +202,10 @@ export default class JuggernautGame {
     this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
 
 
+    if (this.wall.x <= -240 && this.level >= 3) {
+      this.wall.x = -300; 
+      this.wallType = this.wall.wallRandomizer(this.level);
+    }
     if (this.wall.x === 646) {
       this.phrase = this.phrases.sample(this.level);
       this.ctx.font = "30px Georgia";
@@ -211,7 +215,7 @@ export default class JuggernautGame {
       this.wallSpeed = 1.0;
     }
 
-    this.wall.render(this.wallSpeed, this.level);
+    this.wall.render(this.wallSpeed, this.wallType);
     // this.otherWalls.render(this.wallSpeed);
 
     this.juggernaut.drawJuggernaut(this.cycleLoop[this.currentLoopIndex]);

@@ -17,7 +17,7 @@ export default class OtherWalls {
 
 
     this.img = new Image();
-    this.img.src = './assets/spritesheets/Other_Walls_Spritesheet.png';
+    this.img.src = './assets/spritesheets/4th_wall_spritesheet.png';
 
     this.bricksBreaking = new Audio('./assets/sounds/bricks_breaking.mp3');
     this.bricksBreaking.volume = 0.5;
@@ -37,23 +37,22 @@ export default class OtherWalls {
     // console.log(this.x);
     if (this.x <= 180) {
       if (this.x > 165) this.bricksBreaking.play();
-      // Genghis Khan
-      // this.ctx.drawImage(this.img,
-      //   350, 300, 430, 300,
-      //   this.x, 95, 350, 300);
-      // Reagan and Gorbachev
+      // Simpsons couch gag
       this.ctx.drawImage(this.img,
-        300, 0, 430, 300,
-        this.x, 150, 250, 250);
+        410, 0, 410, 300,
+        this.x, 150, 300, 207);
+      // this.ctx.drawImage(this.img,
+      //   450, 280, 600, 450,
+      //   this.x, 150, 300, 207);
     } else {
-      // Great Wall of China
-      // this.ctx.drawImage(this.img,
-      //   0, 300, 300, 300,
-      //   this.x, 95, 300, 300);
-      // Berlin Wall
+      // Simpsons staring
       this.ctx.drawImage(this.img,
-        0, 0, 300, 300,
-        this.x, 125, 300, 300);
+        0, 0, 410, 300,
+        this.x, 150, 300, 207);
+      // Deadpool brickwall
+      // this.ctx.drawImage(this.img,
+      //   0, 400, 410, 300,
+      //   this.x, 170, 300, 207);
     }
 
   }
