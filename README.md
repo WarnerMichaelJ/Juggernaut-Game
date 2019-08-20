@@ -2,7 +2,7 @@
 
 [Live Link](https://juggernaut-s-revenge.firebaseapp.com)
 
-![alt text](https://raw.githubusercontent.com/WarnerMichaelJ/Juggernaut-Game/blob/dist/assets/gameplay/berlin_wall_smash.gif "Berlin Wall Smash")
+![alt text](https://raw.githubusercontent.com/WarnerMichaelJ/Juggernaut-Game/blob/master/dist/assets/gameplay/berlin_wall_smash.gif "Berlin Wall Smash")
 
 Juggernaut’s Revenge is a side scroller, typing exercise game involving the X-Men’s Juggernaut villain running into brick walls that you have to type his way through.  
 
