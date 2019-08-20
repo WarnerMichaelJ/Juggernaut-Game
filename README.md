@@ -1,20 +1,25 @@
-<h1 style="text-align: center; font-weight: bold">Juggernaut's Revenge</h1>
+<!-- <h1 style="text-align: center; font-weight: bold">Juggernaut's Revenge</h1> -->
+# Juggernaut's Revenge
 
 [Live Link](https://juggernaut-s-revenge.firebaseapp.com)
+
+## Overview
+
+Juggernaut’s Revenge is a side scroller, typing exercise game involving the X-Men’s Juggernaut villain running into brick walls that you have to type his way through.  
 
 <!-- ![alt text](dist/assets/gameplay/berlin_wall_smash.gif "Berlin Wall Smash") -->
 <img src="dist/assets/gameplay/berlin_wall_smash.gif" width=100%>
 
-Juggernaut’s Revenge is a side scroller, typing exercise game involving the X-Men’s Juggernaut villain running into brick walls that you have to type his way through.  
+
 
 ## Technologies Utilized
 
--Vanilla Javascript
--HTML
--CSS
--Webpack
--Canvas
--Firebase
+- Vanilla Javascript
+- HTML
+- CSS
+- Webpack
+- Canvas
+- Firebase
 
 ### Start Game 
 
