@@ -24,7 +24,7 @@ export default class Juggernaut {
 
     this.currentLoopIndex = 0;
     this.frameCount = 0;
-    // this.step = this.step.bind(this);
+
     this.drawJuggernaut = this.drawJuggernaut.bind(this);
   }
 
@@ -35,38 +35,5 @@ export default class Juggernaut {
       CONSTANTS.CANVAS_X, CONSTANTS.CANVAS_Y, 146, 120);
   }
 
-
-  // step() {
-  //   // debugger; 
-  //   this.frameCount++;
-  //   if (this.frameCount < 10) {
-  //     window.requestAnimationFrame(this.step);
-  //     return;
-  //   }
-  //   this.frameCount = 0;
-  //   this.ctx.clearRect(0, 0, this.canvasDimensions.width, this.canvasDimensions.height);
-
-  //   this.drawJuggernaut(this.cycleLoop[this.currentLoopIndex]);
-  //   this.currentLoopIndex++;
-  //   if (this.currentLoopIndex >= this.cycleLoop.length) {
-  //     this.currentLoopIndex = 0;
-  //   }
-  //   window.requestAnimationFrame(this.step);
-  // }
-
-
-
-  // init() {
-  //   window.requestAnimationFrame(this.step);
-  // }
-
-  // bounds() {
-  //   return {
-  //     left: this.x,
-  //     right: this.x + CONSTANTS.JUGGERNAUT_WIDTH,
-  //     top: this.y,
-  //     bottom: this.y + CONSTANTS.JUGGERNAUT_HEIGHT
-  //   };
-  // }
 
 }

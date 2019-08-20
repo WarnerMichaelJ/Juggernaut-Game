@@ -19,19 +19,18 @@ document.addEventListener('DOMContentLoaded', () => {
   arcadeMusic.addEventListener('click', (e) => {
     e.preventDefault();
     juggernautGame.handleMusic();
-    // canvas.focus();
+
   });
 
 
   const startScreen = document.getElementById('start-screen');
   const startButton = document.getElementById('start-button');
   
-
   startButton.addEventListener('click', (e) => {
     startScreen.classList.add('displaynone');
-    // startButton.classList.add('displaynone');
+
     juggernautGame.arcadeMusic.play();
-    // window.arcadeMusic = juggernautGame.arcadeMusic;
+
     juggernautGame.render();
     sentenceInput.focus();
   });
@@ -48,5 +47,5 @@ document.addEventListener('DOMContentLoaded', () => {
     instructionsModalParentDiv.classList.add('displaynone');
   });
 
-  // juggernautGame.render();
+
 });

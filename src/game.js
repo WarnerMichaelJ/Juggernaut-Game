@@ -216,7 +216,6 @@ export default class JuggernautGame {
     }
 
     this.wall.render(this.wallSpeed, this.wallType);
-    // this.otherWalls.render(this.wallSpeed);
 
     this.juggernaut.drawJuggernaut(this.cycleLoop[this.currentLoopIndex]);
 
@@ -229,15 +228,14 @@ export default class JuggernautGame {
     } else {
       this.ctx.fillText(this.phrase, 150, 170);
     }
-    
-    // this.currentLoopIndex++;
+
     if (this.currentLoopIndex >= this.cycleLoop.length) {
       this.currentLoopIndex = 0;
     }
     this.background.render();
 
     window.requestAnimationFrame(this.render);
-    // this.juggernaut.step();
+
 
   }
 
