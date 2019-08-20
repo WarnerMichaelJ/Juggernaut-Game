@@ -2,7 +2,7 @@
 
 [Live Link](https://juggernaut-s-revenge.firebaseapp.com)
 
-![alt text](https://raw.githubusercontent.com/WarnerMichaelJ/Juggernaut-Game/dist/assets/gameplay/berlin_wall_smash.gif "Berlin Wall Smash")
+![alt text](https://raw.githubusercontent.com/WarnerMichaelJ/Juggernaut-Game/blob/dist/assets/gameplay/berlin_wall_smash.gif "Berlin Wall Smash")
 
 Juggernaut’s Revenge is a side scroller, typing exercise game involving the X-Men’s Juggernaut villain running into brick walls that you have to type his way through.  
 
@@ -36,7 +36,7 @@ Users get to type their way through five levels. Differences between levels incl
 
 ### New Level Animation
 
-![alt text](https://raw.githubusercontent.com/WarnerMichaelJ/Juggernaut-Game/dist/assets/gameplay/new_level.gif "New Level Animation")
+![alt text](https://raw.githubusercontent.com/WarnerMichaelJ/Juggernaut-Game/blob/dist/assets/gameplay/new_level.gif "New Level Animation")
 
 New level information was handled with a renderLevelInfo method defined on the game class. The level-info elements were gotten by id, and their innerHTML attributes were re-assigned the information of the immediate level. The rendering of the walls smashed count in the top level of the game was achieved by similar means of modifying the innerHTML of a selected wall-count element. A display none global class gets re-attached to the level-info element after a period of time assigned through a setTimeout function. 
 
