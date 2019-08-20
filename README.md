@@ -2,7 +2,7 @@
 
 [Live Link](https://juggernaut-s-revenge.firebaseapp.com)
 
-![alt text](https://raw.githubusercontent.com/WarnerMichaelJ/Juggernaut-Game/blob/master/dist/assets/gameplay/berlin_wall_smash.gif "Berlin Wall Smash")
+![alt text](dist/assets/gameplay/berlin_wall_smash.gif "Berlin Wall Smash")
 
 Juggernaut’s Revenge is a side scroller, typing exercise game involving the X-Men’s Juggernaut villain running into brick walls that you have to type his way through.  
 
@@ -17,7 +17,7 @@ Juggernaut’s Revenge is a side scroller, typing exercise game involving the X-
 
 ### Start Game 
 
-![alt text](https://raw.githubusercontent.com/WarnerMichaelJ/Juggernaut-Game/dist/assets/gameplay/opening_screen_initial_smash.gif "Start screen first smash")
+![alt text](dist/assets/gameplay/opening_screen_initial_smash.gif "Start screen first smash")
 
 The start screen displays a gif of the Juggernaut beside the start button. Clicking the "How to Play" button renders a modal to the screen with game instructions. An event listener was added to the start button which attaches a display none class to the start screen revealing the canvas element behind it. The button also triggers the initial rendering of the game, and plays the arcade music. 
 
@@ -36,7 +36,7 @@ Users get to type their way through five levels. Differences between levels incl
 
 ### New Level Animation
 
-![alt text](https://raw.githubusercontent.com/WarnerMichaelJ/Juggernaut-Game/blob/dist/assets/gameplay/new_level.gif "New Level Animation")
+![alt text](dist/assets/gameplay/new_level.gif "New Level Animation")
 
 New level information was handled with a renderLevelInfo method defined on the game class. The level-info elements were gotten by id, and their innerHTML attributes were re-assigned the information of the immediate level. The rendering of the walls smashed count in the top level of the game was achieved by similar means of modifying the innerHTML of a selected wall-count element. A display none global class gets re-attached to the level-info element after a period of time assigned through a setTimeout function. 
 
@@ -78,7 +78,7 @@ Upon reaching the Juggernaut's coordinates, a bricksBreaking audio is executed a
 
 ### Game Over and Game Restart
 
-![alt text](https://raw.githubusercontent.com/WarnerMichaelJ/Juggernaut-Game/dist/assets/gameplay/game_over_screen.gif "Start screen first smash")
+![alt text](dist/assets/gameplay/game_over_screen.gif "Start screen first smash")
 
 If a user does not type a sentence in time, an animated gameover HTML element is overlayed onto the frozen canvas screen. Clicking anywhere within this game over screen triggers a rendering of a new game through an event listener attached to it designed to both re-hide the screen, as well as render a new instance of the game. 
 
