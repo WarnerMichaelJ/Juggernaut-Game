@@ -7,8 +7,13 @@ canvas {
   text-align: center;
 }
 
+body, html {
+  font-family: monospace; 
+}
+
 body > h1 {
   margin-top: 25px;
+  margin-bottom: 25px; 
   font-size: 35px;
   font-weight: 700;
   font-family: monospace;
@@ -16,9 +21,9 @@ body > h1 {
 
 #canvas-div {
   margin: 0 auto;
-  margin-top: 2%;
+  /* margin-top: 2%;
 
-  margin-left: 15%;
+  margin-left: 15%; */
   height: 381px; 
   width: 1000px; 
 }
@@ -35,18 +40,23 @@ body > h1 {
 }
 
 #footer-div {
-  display: flex; 
-  flex-direction: row; 
-  justify-content: space-around;
-  color: black; 
-  font-size: 45px; 
-  margin: 120px auto 0px auto;
-  height: 40px;
-  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: black;
+  font-size: 25px;
+  height: 120px;
+  width: 100vw;
+  background-color: lightgray;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto;
 }
 
 #footer-div > div > a {
   color: black; 
+  margin-right: 10px; 
 }
 
 #footer-div > div > a > span:hover {
@@ -55,7 +65,7 @@ body > h1 {
 
 }
 
-#sentence-input {
+/* #sentence-input {
   position: absolute;
   border-radius: 5px; 
   font-family: "Georgia";
@@ -64,7 +74,7 @@ body > h1 {
   border: 0px solid blue;
   outline: none;
   left: 50%;
-  /* bottom: 170px; */
+
   bottom: 247px; 
   transform: translate(-50%, -50%);
   width: 550px;
@@ -72,7 +82,30 @@ body > h1 {
   padding: 0;
   font-size: 28px;
   text-align: center;
+} */
+
+#sentence-input {
+  /* position: absolute; */
+  border-radius: 5px; 
+  font-family: monospace;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: black;
+  border: 2px solid black;
+  outline: none;
+  text-align: center; 
+  font-size: 28px;
+  width: 550px;
+  height: 40px;
+  margin-top: 20px; 
+  /*padding: 0;
+  font-size: 28px;*/
 }
+
+#sentence-input-flex-container {
+  display: flex; 
+  justify-content: center; 
+}
+
 
 #wall-count {
   padding-top: 15px;
@@ -130,6 +163,7 @@ body > h1 {
   width: 1001px;
   height: 382px; 
   background: black; 
+  border: 5px solid brown; 
 }
 
 #start-screen > button {
@@ -262,7 +296,7 @@ body > h1 {
   margin-top: 15px; 
   font-size: 22px; 
   font-weight: 700;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'monospace', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: left;
   margin-left: 7.5%; 
   margin-right: 7.5%;

@@ -208,7 +208,7 @@ export default class JuggernautGame {
     }
     if (this.wall.x === 646) {
       this.phrase = this.phrases.sample(this.level);
-      this.ctx.font = "30px Georgia";
+      this.ctx.font = "normal bold 30px Courier";
       this.ctx.fillStyle = "white";
       
       this.breakable = false; 
@@ -223,8 +223,8 @@ export default class JuggernautGame {
 
     if (this.breakable) {
       this.ctx.fillText(this.phrase, 150, 170);
-      this.ctx.fillStyle = "green";
-      this.ctx.font = "30px Georgia";
+      this.ctx.fillStyle = "red";
+      this.ctx.font = "normal bold 30px Courier";
     } else {
       this.ctx.fillText(this.phrase, 150, 170);
     }
