@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const instructionsModalParentDiv = document.getElementById('instructions-modal-parent-div');
 
   instructionsButton.addEventListener('click', (e) => {
-    console.log("inside-instructions-button-click");
+
     instructionsModalParentDiv.classList.remove('displaynone');
   });
 
