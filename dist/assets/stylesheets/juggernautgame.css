@@ -97,6 +97,8 @@ body > h1 {
   width: 550px;
   height: 40px;
   margin-top: 20px; 
+  background-color: lightgray;
+  z-index: 5; 
   /*padding: 0;
   font-size: 28px;*/
 }
@@ -340,4 +342,12 @@ body > h1 {
   100%{
     transform:scale(0.9);
   }
+}
+
+#juggernaut-body {
+  /* background-image: url(Bricks_Background.jpg); */
+}
+
+#game-title {
+  width: 700px; 
 }
