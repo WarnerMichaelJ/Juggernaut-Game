@@ -67,7 +67,7 @@ export default class JuggernautGame {
   handlePhrase(event) {
     if (event.keyCode === 13) {
       let value = this.input.value.trim();
-      if (value === this.phrase && !this.breakable) {
+      if (value === this.phrase) {
         this.breakable = true; 
         this.successfulSmash = this.phrases.samplePositivity();
         this.phrase = this.successfulSmash; 
