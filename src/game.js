@@ -106,6 +106,7 @@ export default class JuggernautGame {
     newGame.render();
     this.gameOverScreen.removeEventListener("click", this.handleRestart);
     this.gameOverScreen.classList.add("displaynone");
+    this.input.value = "";
     this.input.focus();
   }
 
