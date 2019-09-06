@@ -24,7 +24,7 @@ export default class Phrases {
   }
 
   sample(level) {
-    if (level === 1) {
+    if (level === 1 || level === 2) {
       return this.shorterSentences[Math.floor(Math.random() * this.shorterSentences.length)];
     }
     return this.sentences[Math.floor(Math.random() * this.sentences.length)];

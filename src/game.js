@@ -136,13 +136,13 @@ export default class JuggernautGame {
     if (this.level === 2) {
       this.levelInfo.classList.remove("displaynone");
       levelInfoParagraph1.innerHTML = "LEVEL 2!";
-      levelInfoParagraph2.innerHTML = "You've unlocked new sentences!";
+      levelInfoParagraph2.innerHTML = "You've got new walls to smash!";
       setTimeout(this.removeLevelInfo, 1000);
     }
     if (this.level === 3) {
       this.levelInfo.classList.remove("displaynone");
       levelInfoParagraph1.innerHTML = "LEVEL 3!";
-      levelInfoParagraph2.innerHTML = "You've got new walls to smash!";
+      levelInfoParagraph2.innerHTML = "You've unlocked new sentences!";
       setTimeout(this.removeLevelInfo, 1000);
     }
     if (this.level === 4) {
@@ -204,7 +204,7 @@ export default class JuggernautGame {
     this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
 
 
-    if (this.wall.x <= -240 && this.level >= 3) {
+    if (this.wall.x <= -240 && this.level >= 2) {
       this.wall.x = -300; 
       this.wallType = this.wall.wallRandomizer(this.level);
     }
