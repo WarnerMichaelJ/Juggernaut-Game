@@ -50,7 +50,7 @@ export default class Wall {
     
     if (wallType === "brick") {
       if (this.x <= -250) this.x = 650;
-      // console.log(this.x);
+
       if (this.x <= 180) {
         if (this.x > 165) this.bricksBreaking.play();
         this.ctx.drawImage(this.brickWall, 
@@ -101,7 +101,7 @@ export default class Wall {
 
     if (wallType === "deadpool") {
       if (this.x <= -250) this.x = 650;
-      // console.log(this.x);
+
       if (this.x <= 180) {
         if (this.x > 165) this.bricksBreaking.play();
 
@@ -118,7 +118,7 @@ export default class Wall {
 
     if (wallType === "simpsons") {
       if (this.x <= -250) this.x = 650;
-      // console.log(this.x);
+
       if (this.x <= 180) {
         if (this.x > 165) this.bricksBreaking.play();
         // Simpsons couch gag
