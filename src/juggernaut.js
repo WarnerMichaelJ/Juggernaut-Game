@@ -10,14 +10,11 @@ const CONSTANTS = {
 export default class Juggernaut {
 
   constructor(ctx, dimensions) {
-    // this.x = this.dimensions.width / 3;
-    // this.y = this.dimensions.height / 2;
     this.ctx = ctx; 
 
     this.canvasDimensions = dimensions;
     this.img = new Image();
     this.img.src = "./assets/spritesheets/Juggernaut_Spritesheet_Simplified.png";
-
 
     this.cycleLoop = [0, 1, 0, 2];
     // this.cycleLoop = [0, 1];

@@ -13,15 +13,13 @@ class MovingBackground {
 
     this.img = new Image();
     this.img.src = './assets/images/X-Men_background_image.png';
-    // debugger;
+
     this.drawBackground = this.drawBackground.bind(this);
     this.render = this.render.bind(this);
   }
 
 
   drawBackground() {
-    // debugger; 
-    // drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
     this.context.drawImage(
       this.img,
       this.imgCoordinates[0],
@@ -53,8 +51,6 @@ class MovingBackground {
     this.drawBackground();
     if (this.xCurrent <= -CANVAS_WIDTH) this.xCurrent = 0;
     this.xCurrent -= this.speed;
-    // debugger;
-    // console.log(this.xCurrent);
   }
 }
 
