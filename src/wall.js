@@ -26,7 +26,7 @@ export default class Wall {
     this.fourthWall.src = './assets/spritesheets/4th_wall_spritesheet.png';
 
     this.bricksBreaking = new Audio('./assets/sounds/bricks_breaking.mp3'); 
-    this.bricksBreaking.volume = 0.5; 
+    this.bricksBreaking.volume = 0.3; 
     this.moveWall = this.moveWall.bind(this);
     this.drawWall = this.drawWall.bind(this);
     this.wallRandomizer = this.wallRandomizer.bind(this);

@@ -43,6 +43,7 @@ export default class JuggernautGame {
     
 
     this.arcadeMusic = new Audio('./assets/sounds/game_music.wav');
+    this.arcadeMusic.volume = 0.5;
     this.arcadeMusic.loop = true; 
 
     this.wallType = "brick";
